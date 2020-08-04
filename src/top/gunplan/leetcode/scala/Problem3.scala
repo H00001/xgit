@@ -3,6 +3,7 @@ package top.gunplan.leetcode.scala
 import scala.util.control.Breaks._
 
 
+class xxx {
 
   object Solution {
     def lengthOfLongestSubstring(s: String): Int = {
@@ -24,13 +25,11 @@ import scala.util.control.Breaks._
           dp(i) = dp(i - 1) + 1
         }
       }
-      dp.maxBy(v=>{
+      dp.maxBy(v => {
         v
       })
     }
 
-
   }
 
-
-
+}
