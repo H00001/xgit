@@ -3,7 +3,7 @@ package top.gunplan.leetcode.scala
 import scala.util.control.Breaks._
 
 
-class xxx {
+class Problem3 {
 
   object Solution {
     def lengthOfLongestSubstring(s: String): Int = {
@@ -12,11 +12,9 @@ class xxx {
         return s.length()
       }
       dp(0) = 1
-
       for (i <- 1 until s.length()) {
         breakable {
           for (j <- i - 1 until i - 1 - dp(i - 1) by -1) {
-
             if (s.charAt(j) == s.charAt(i)) {
               dp(i) = i - j
               break
