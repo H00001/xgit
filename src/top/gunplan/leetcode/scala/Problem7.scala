@@ -13,6 +13,7 @@ class Problem7 {
       for (i <- s.length - 1 to 0 by -1) {
         res = (s.charAt(i).toInt - '0') * Math.pow(10, i) + res
       }
+      if (res > Int.MaxValue || res < (-Int.MaxValue)) return 0
       if (flag) -res.toInt else res.toInt
     }
   }
