@@ -11,8 +11,9 @@ object Problem17 {
 
     def letterCombinations(digits: String): List[String] = {
       if (digits.length == 0) {
-        return r.toList
+        return List.empty[String]
       }
+      r.clear()
       letterCombinations0(digits, 0, "")
       r.toList
     }
