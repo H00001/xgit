@@ -17,7 +17,6 @@ class Problem21 {
       }
       if (l > 0) {
         dosth(n, str + ")", l - 1, lz)
-
       }
     }
 
