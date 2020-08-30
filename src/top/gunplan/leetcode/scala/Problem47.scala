@@ -9,22 +9,18 @@ object Problem47 {
 
     var lb = ListBuffer[List[Int]]()
 
-    def permuteUnique0(nums: Array[Int], s: String): Unit = {
-      if (s.length == nums.length) {
-        var ch = new ListBuffer[Int]()
-        for (k <- s.toCharArray) {
-          ch += (k - '0')
-        }
-        lb += ch.toList
+    def permuteUnique0(nums: Array[Int], po: Array[Int], l: List[Int]): Unit = {
+      if (l.length == nums.length) {
+        if (!lb.contains(l))
+          lb += l
         return
       }
 
       for (i <- nums.indices) {
-        if (nums(i) != -1) {
-          val k = nums(i)
-          nums(i) = -1
-          permuteUnique0(nums, s + k.toString)
-          nums(i) = k
+        if (po(i) != -1) {
+          po(i) = -1
+          permuteUnique0(nums, po, l :+ nums(i))
+          po(i) = 0
         }
       }
 
@@ -32,8 +28,8 @@ object Problem47 {
 
     def permuteUnique(nums: Array[Int]): List[List[Int]] = {
       lb.clear()
-      permuteUnique0(nums, "")
-      lb.distinct.toList
+      permuteUnique0(nums, new Array[Int](nums.length), List[Int]())
+      lb.toList
     }
   }
 
